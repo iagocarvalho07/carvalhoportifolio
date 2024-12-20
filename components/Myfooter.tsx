@@ -1,4 +1,3 @@
-import { div } from 'framer-motion/client'
 import React from 'react'
 import MagicButton from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa'

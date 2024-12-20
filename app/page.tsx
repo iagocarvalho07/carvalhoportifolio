@@ -6,7 +6,7 @@ import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import WorkExperience from "@/components/WorkExperience";
 import { FaHome } from "react-icons/fa";
-import { FaDiagramProject, FaEnvelope, FaPersonChalkboard, FaUpwork } from "react-icons/fa6";
+import { FaDiagramProject, FaEnvelope, FaPersonChalkboard} from "react-icons/fa6";
 
 export default function Home() {
   return (

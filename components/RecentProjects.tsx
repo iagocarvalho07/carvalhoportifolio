@@ -1,5 +1,4 @@
 import { projects } from '@/data/indexMoc'
-import { div } from 'framer-motion/client'
 import React from 'react'
 import { PinContainer } from './ui/PinContainer'
 import { FaLocationArrow } from 'react-icons/fa'
