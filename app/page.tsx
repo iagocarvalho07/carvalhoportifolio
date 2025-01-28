@@ -1,3 +1,5 @@
+"use client";
+
 import Approach from "@/components/Approach";
 import Grind from "@/components/Grind";
 import Hero from "@/components/Hero";
@@ -20,7 +22,7 @@ export default function Home() {
         ]} />
         <Hero />
         <Grind />
-        <RecentProjects/>
+       <RecentProjects/>
         <WorkExperience/>
         <Approach/>
       </div>
