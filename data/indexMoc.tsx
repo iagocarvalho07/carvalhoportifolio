@@ -18,7 +18,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "Sou muito flexível com as comunicações e fuso horário",
+      title: "Sou muito flexível com as comunicações e fuso horário .",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
