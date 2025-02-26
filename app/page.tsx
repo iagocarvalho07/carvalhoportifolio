@@ -3,13 +3,13 @@ import Grind from "@/components/Grind";
 import Hero from "@/components/Hero";
 import Myfooter from "@/components/Myfooter";
 import RecentProjects from "@/components/RecentProjects";
-import { FloatingNav } from "@/components/ui/FloatingNav";
 import WorkExperience from "@/components/WorkExperience";
 import { FaHome } from "react-icons/fa";
 import { FaDiagramProject, FaEnvelope, FaPersonChalkboard } from "react-icons/fa6";
 import { Suspense } from 'react'
+import { FloatingNav } from "@/components/ui/FloatingNav";
 
-export default function page() {
+export default function Page() {
 
   return (
     <Suspense>
