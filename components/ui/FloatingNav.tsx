@@ -1,5 +1,5 @@
 "use client";
-import React, { JSX, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -24,22 +24,18 @@ export const FloatingNav = ({
 
   const [visible, setVisible] = useState(false);
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
-    if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
-
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+  
+    const unsubscribe = useMotionValueEvent(scrollYProgress, "change", (current) => {
+      if (typeof current === "number") {
+        let direction = current - (scrollYProgress.getPrevious() || 0);
+        setVisible(scrollYProgress.get() >= 0.05 && direction < 0);
       }
-    }
-  });
+    });
+  
+    return () => unsubscribe;
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
