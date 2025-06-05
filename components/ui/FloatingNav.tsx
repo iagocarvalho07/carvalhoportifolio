@@ -21,21 +21,14 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-  
-    const unsubscribe = useMotionValueEvent(scrollYProgress, "change", (current) => {
-      if (typeof current === "number") {
-        let direction = current - (scrollYProgress.getPrevious() || 0);
-        setVisible(scrollYProgress.get() >= 0.05 && direction < 0);
-      }
-    });
-  
-    return () => unsubscribe;
-  }, []);
+  useMotionValueEvent(scrollYProgress, "change", (current) => {
+    if (typeof current === "number") {
+      let direction = current - (scrollYProgress.getPrevious() || 0);
+      setVisible(scrollYProgress.get() >= 0.05 && direction < 0);
+    }
+  });
 
   return (
     <AnimatePresence mode="wait">

@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/fiber": "^8.17.10",
     "@tabler/icons-react": "^3.26.0",
+    "carvalho-portifolio": "file:",
     "clsx": "^2.1.1",
     "framer-motion": "^11.15.0",
     "mini-svg-data-uri": "^1.4.4",
