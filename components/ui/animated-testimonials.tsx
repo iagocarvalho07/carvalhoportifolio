@@ -19,6 +19,7 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -38,6 +39,14 @@ export const AnimatedTestimonials = ({
       return () => clearInterval(interval);
     }
   }, [autoplay]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 768) {
+        setIsMobile(true);
+      }
+    }
+  }, []);
 
   const randomRotateY = () => {
     const rotations = [-10, -5, 0, 5, 10];

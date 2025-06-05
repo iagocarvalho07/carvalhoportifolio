@@ -45,8 +45,10 @@ export const MacbookScroll = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (window && window.innerWidth < 768) {
-      setIsMobile(true);
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 768) {
+        setIsMobile(true);
+      }
     }
   }, []);
 
