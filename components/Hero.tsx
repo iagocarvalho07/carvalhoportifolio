@@ -1,10 +1,19 @@
 import React, { Suspense } from 'react'
 import { Spotlight } from './ui/Spotlight'
-import { TextGenerateEffect } from './ui/text-generate-effect'
+import dynamic from 'next/dynamic'
 import MagicButton from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa'
-import { AnimatedTestimonials } from './ui/animated-testimonials'
 import { myImagesAndFrases } from '@/data/indexMoc'
+
+const DynamicAnimatedTestimonials = dynamic(() => import('./ui/animated-testimonials').then(mod => mod.AnimatedTestimonials), {
+  ssr: false,
+  loading: () => <div>Carregando...</div>
+});
+
+const DynamicTextGenerateEffect = dynamic(() => import('./ui/text-generate-effect').then(mod => mod.TextGenerateEffect), {
+  ssr: false,
+  loading: () => <div>Carregando...</div>
+});
 
 const Hero = () => {
     return (
@@ -41,7 +50,7 @@ const Hero = () => {
                             <h2 className='uppercase tracking-widest text-xs text-center text-blue-400 max-w-80 font-semibold' >
                                 Web Magicamente Dinamico com Next.js
                             </h2>
-                            <TextGenerateEffect
+                            <DynamicTextGenerateEffect
                                 className='text-center text-[40] md:text-5xl lg:text-6xl text-white font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]'
                                 words='Transformando Ideias em Experiencia de usuario perfeita'
                             />
@@ -56,7 +65,7 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className='flex justify-center relative my-20 z-10'>
-                        <AnimatedTestimonials testimonials={myImagesAndFrases} />
+                        <DynamicAnimatedTestimonials testimonials={myImagesAndFrases} />
                     </div>
                 </Suspense>
             </div>

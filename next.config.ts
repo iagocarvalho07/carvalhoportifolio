@@ -8,8 +8,7 @@ const nextConfig: NextConfig = {
       allowedOrigins: ['localhost:3000', 'carvalho-portifolio.vercel.app']
     }
   },
-  reactStrictMode: true,
-  swcMinify: true,
+  reactStrictMode: true
 };
 
 export default nextConfig;
